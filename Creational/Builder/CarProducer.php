@@ -19,7 +19,7 @@ class CarProducer
      *
      * @return \Creational\Builder\Models\Car The built car instance.
      */
-    public function build(): Car
+    public function ProduceCar(): Car
     {
         $this->builder->createCar();
         $this->builder->addBody();
