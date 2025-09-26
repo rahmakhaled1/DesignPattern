@@ -45,4 +45,9 @@ Each folder contains:
 You can run the examples with:
 
 ```bash
-php <filename>.php
+# Run specific test
+vendor/bin/phpunit tests/FactoryMethodTest.php
+
+# Run all tests
+vendor/bin/phpunit
+
