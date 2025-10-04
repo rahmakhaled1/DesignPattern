@@ -53,6 +53,46 @@ A creational pattern that allows you to **reuse a set of objects** instead of cr
 
 ---
 
+## Repository + Data Mapper  
+**Definition:**  
+The **Repository Pattern** provides a layer that separates the business logic from the data access logic.  
+👉 It allows your application to work with data as objects, without knowing how the data is actually stored or retrieved.  
+
+The **Data Mapper Pattern** is responsible for transferring data between the in-memory objects and the database (or any data source) while keeping them independent from each other.  
+👉 It maps raw data (arrays, rows, JSON, etc.) into objects, and maps objects back into data for persistence.  
+
+---
+
+**Example idea:**  
+- `UserRepository` provides high-level operations like `find()`, `save()`, and `delete()` for `User` objects.  
+- `ArrayEntityManager` acts as the persistence layer (a simple in-memory database).  
+- `UserDataMapper` converts between array data and `User` entity objects.  
+
+**Example flow:**  
+1. The application asks the repository: `find(1)`  
+2. The repository calls the persistence layer to retrieve data for ID 1  
+3. The persistence layer returns an array → `['name' => 'ahmed', 'email' => 'ahmed@test.com']`  
+4. The Data Mapper converts the array into a `User` object  
+5. The repository returns the `User` object to the application  
+
+---
+
+**Benefits:**  
+- Keeps business logic separate from data access logic  
+- Makes the code easier to test and maintain  
+- Allows switching between different data sources easily  
+- Promotes a clean and modular architecture  
+
+---
+
+**In this example:**  
+- `PersistenceInterface` → defines basic operations for saving, retrieving, and deleting data  
+- `ArrayEntityManager` → provides an in-memory implementation of persistence  
+- `UserDataMapper` → converts data between arrays and `User` objects  
+- `UserRepository` → offers high-level methods to interact with `User` entities through the mapper and persistence layer  
+
+---
+
 ## How to use  
 Each folder contains:  
 - PHP classes implementing the pattern.  
@@ -66,4 +106,3 @@ vendor/bin/phpunit tests/FactoryMethodTest.php
 
 # Run all tests
 vendor/bin/phpunit
-```
