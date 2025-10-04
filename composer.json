@@ -3,7 +3,8 @@
     "description": "code examples for design patterns in php",
     "autoload": {
         "psr-4": {
-            "Creational\\": "Creational/"
+            "Creational\\": "Creational/",
+            "Others\\": "Others/"
         }
     },
     "authors": [

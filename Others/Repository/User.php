@@ -9,20 +9,10 @@ namespace Others\Repository;
  */
 class User
 {
-    /**
-     * Initializes a new User object.
-     *
-     * @param string $name The user's name.
-     * @param string $email The user's email address.
-     * @param string $password The user's password.
-     */
-    public function __construct(string $name, string $email, string $password)
-    {
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
-    }
 
+    private string $name;
+    private string $email;
+    private string $password;
 
     /**
      * Retrieves the user's name.
